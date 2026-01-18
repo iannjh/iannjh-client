@@ -11,7 +11,7 @@ object ModuleManager {
     init {
         addModule(Sprint)
         addModule(Watermark)
-        addModule(ClickGui)
+
         addModule(ArrayList)
         addModule(NoClickDelay)
         addModule(ArmorHUD)
@@ -22,6 +22,7 @@ object ModuleManager {
         addModule(NoHurtCam)
         addModule(NoMiningWhileDrinking)
         addModule(ToggleNotifications)
+        addModule(YamlEditorModule)
         addModule(ChatUI.apply { defaultEnabled = true }) // Set as default enabled
     }
 

@@ -6,12 +6,13 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.text.Text
+import org.lwjgl.glfw.GLFW
 import java.awt.Color
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class YamlEditor : Screen(Text.of("YamlEditor")) {
+class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
     private var yamlContent = ""
     private var originalContent = ""
     private var scrollOffset = 0
@@ -100,11 +101,11 @@ class YamlEditor : Screen(Text.of("YamlEditor")) {
             cursorBlinkTimer = 0f
         }
 
-        // 绘制灰黑色背景覆盖整个屏幕
-        context.fill(0, 0, screenWidth, screenHeight, 0xFF202020.toInt())
+        // 绘制浅灰色背景覆盖整个屏幕
+        context.fill(0, 0, screenWidth, screenHeight, 0xFF383838.toInt())
 
-        // 绘制灰色编辑框背景
-        context.fill(editorX, editorY, editorX + editorWidth, editorY + editorHeight, 0xFF404040.toInt())
+        // 绘制较亮的灰色编辑框背景
+        context.fill(editorX, editorY, editorX + editorWidth, editorY + editorHeight, 0xFF505050.toInt())
 
         // 绘制编辑框边框
         context.fill(editorX, editorY, editorX + editorWidth, editorY + 2, 0xFFFFFFFF.toInt())
@@ -145,7 +146,7 @@ class YamlEditor : Screen(Text.of("YamlEditor")) {
         if (totalLines > visibleLines) {
             val scrollBarHeight = (editorHeight.toFloat() / totalLines * visibleLines).toInt()
             val scrollBarY = editorY + (scrollOffset.toFloat() / maxScroll * (editorHeight - scrollBarHeight)).toInt()
-            context.fill(editorX + editorWidth - 10, scrollBarY, editorX + editorWidth - 5, scrollBarY + scrollBarHeight, 0xFF808080.toInt())
+            context.fill(editorX + editorWidth - 10, scrollBarY, editorX + editorWidth - 5, scrollBarY + scrollBarHeight, 0xFFA0A0A0.toInt())
         }
 
         // 绘制保存按钮（绿色）
@@ -288,6 +289,7 @@ class YamlEditor : Screen(Text.of("YamlEditor")) {
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        
         val lines = yamlContent.split("\n".toRegex()).toMutableList()
         
         when (keyCode) {

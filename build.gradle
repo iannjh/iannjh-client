@@ -32,6 +32,10 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+
+	// SnakeYAML for YAML configuration
+	modImplementation "org.yaml:snakeyaml:2.2"
+	include "org.yaml:snakeyaml:2.2"
 }
 
 // 其余部分保持不变...
@@ -60,8 +64,6 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

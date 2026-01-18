@@ -1,29 +1,29 @@
 {
 	"schemaVersion": 1,
-	"id": "archlibman",
+	"id": "iannjhclient",
 	"version": "${version}",
-	"name": "archlibman",
+	"name": "iannjhclient",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"archlibman"
+		"iannjhclient"
 	],
 	"contact": {
-		"homepage": "https://archjh.github.io/",
-		"sources": "https://github.com/Archjh/ArchLibman"
+		"homepage": "https://iannjh.github.io/",
+		"sources": "https://github.com/iannjh/iannjh-client"
 	},
 	"license": "GPL-3.0",
-	"icon": "assets/archlibman/icon.png",
+	"icon": "assets/iannjhclient/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			{
-				"value": "cn.archlibman.Archlibman",
+				"value": "cn.iannjhclient.iannjhclient",
 				"adapter": "kotlin"
 			}
 		]
 	},
 	"mixins": [
-		"archlibman.mixins.json"
+		"iannjhclient.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.5",

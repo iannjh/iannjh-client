@@ -26,7 +26,7 @@ object FPSDisplay : Module("FPSDisplay", "Displays current FPS", Category.RENDER
         event.context.drawTextWithShadow(
             mc.textRenderer,
             "$fps FPS",
-            5, 5,
+            450, 5,
             color
         )
     }

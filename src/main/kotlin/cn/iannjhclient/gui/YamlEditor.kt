@@ -1,4 +1,3 @@
-
 package cn.iannjhclient.gui
 
 import cn.iannjhclient.config.ConfigManager
@@ -212,12 +211,12 @@ class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
             val clickedLine = ((mouseY - editorY - 5) / lineHeight).toInt()
             val lineIndex = scrollOffset + clickedLine
             val lines = yamlContent.split("\n".toRegex())
-            
+
             if (lineIndex >= 0 && lineIndex < lines.size) {
                 cursorLine = lineIndex
                 val line = lines[lineIndex]
                 val clickedX = (mouseX - editorX - 5).toInt()
-                
+
                 // 计算光标列位置
                 cursorColumn = 0
                 var currentX = 0
@@ -227,7 +226,7 @@ class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
                     currentX += charWidth
                     cursorColumn++
                 }
-                
+
                 cursorVisible = true
                 cursorBlinkTimer = 0f
             }
@@ -289,9 +288,9 @@ class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        
+
         val lines = yamlContent.split("\n".toRegex()).toMutableList()
-        
+
         when (keyCode) {
             259 -> { // Backspace键
                 if (cursorLine >= 0 && cursorLine < lines.size) {

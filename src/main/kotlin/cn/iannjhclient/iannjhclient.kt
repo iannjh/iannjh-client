@@ -14,6 +14,9 @@ object iannjhclient : ModInitializer {
     override fun onInitialize() {
         logger.info("iannjhclient Initializing...")
         EventManager.init()
+        
+        // 初始化配置管理器，加载或创建modules.yaml配置文件
+        ConfigManager.init()
 
         ModuleManager.modules.find { it.name == "ToggleNotifications" }?.enable()
 

@@ -1,0 +1,45 @@
+{
+    "parent": "minecraft:block/tnt",
+    "textures": {
+        "particle": "block/tnt_side",
+        "top": "block/tnt_top",
+        "bottom": "block/tnt_bottom",
+        "side": "block/tnt_side"
+    },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [
+                -23,
+                0,
+                0
+            ],
+            "translation": [
+                -2.75,
+                8.75,    
+                40
+            ],
+            "scale": [
+                2,
+                2,
+                2
+            ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [
+                -23,
+                0,
+                0
+            ],
+            "translation": [
+                -2.75,
+                8.75,    
+                40
+            ],
+            "scale": [
+                2,
+                2,
+                2
+            ]
+        }
+    }
+}

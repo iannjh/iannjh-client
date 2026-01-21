@@ -25,6 +25,7 @@ object ModuleManager {
         addModule(YamlEditorModule)
         addModule(ChatUI) // Set as default enabled
         addModule(Minimap)
+        addModule(TabGUI)
     }
 
     fun addModule(module: Module) {

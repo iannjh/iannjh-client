@@ -6,6 +6,7 @@ import cn.iannjhclient.event.events.ChatEvent
 import cn.iannjhclient.event.events.DrawEvent
 import cn.iannjhclient.event.events.KeyboardEvent
 import cn.iannjhclient.event.events.TickEvent
+import cn.iannjhclient.modules.TabGUI
 
 object EventManager {
     fun init() {
@@ -21,6 +22,10 @@ object EventManager {
 
     @Listener
     fun onKey(event: KeyboardEvent) {
+        // 处理TabGUI的键盘事件
+        TabGUI.onKey(event)
+
+        // 处理模块切换的键盘事件
         modules.forEach {
             if(it.key == event.key) {
                 it.toggle()

@@ -93,7 +93,23 @@ object KeyStrokes : Module("KeyStrokes", "Displays pressed keys and CPS", Catego
 
         val matrices = event.context.matrices
         matrices.push()
-        matrices.translate(0.0, 0.0, 0.0)
+        
+        // 获取窗口尺寸
+        val window = mc.window
+        val screenWidth = window.scaledWidth
+        val screenHeight = window.scaledHeight
+        
+        // 计算KeyStrokes的位置（左下角，靠近快捷栏）
+        val leftMargin = 5 // 左边距
+        val bottomMargin = 60 // 距离底部60像素，靠近快捷栏
+        val keysWidth = 60 // WASD+鼠标按键的总宽度
+        val keysHeight = 80 // WASD+鼠标按键的总高度
+        
+        // 将KeyStrokes移至左下角，确保不遮挡TabGUI
+        val offsetX = leftMargin // 左边距
+        val offsetY = screenHeight - bottomMargin - keysHeight
+        
+        matrices.translate(offsetX.toDouble(), offsetY.toDouble(), 0.0)
 
         for (key in keys) {
             val isDown = key.isDown(mc)

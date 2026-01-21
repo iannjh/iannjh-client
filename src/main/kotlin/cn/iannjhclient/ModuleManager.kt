@@ -2,6 +2,7 @@ package cn.iannjhclient
 
 import cn.iannjhclient.event.events.DrawEvent
 import cn.iannjhclient.modules.*
+import cn.iannjhclient.modules.ArmorHUD.defaultEnabled
 import cn.iannjhclient.value.AbstractSetting
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -11,7 +12,6 @@ object ModuleManager {
     init {
         addModule(Sprint)
         addModule(Watermark)
-
         addModule(ArrayList)
         addModule(NoClickDelay)
         addModule(ArmorHUD)
@@ -23,7 +23,8 @@ object ModuleManager {
         addModule(NoMiningWhileDrinking)
         addModule(ToggleNotifications)
         addModule(YamlEditorModule)
-        addModule(ChatUI.apply { defaultEnabled = true }) // Set as default enabled
+        addModule(ChatUI) // Set as default enabled
+        addModule(Minimap)
     }
 
     fun addModule(module: Module) {

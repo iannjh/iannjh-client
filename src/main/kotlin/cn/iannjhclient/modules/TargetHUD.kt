@@ -83,11 +83,11 @@ object TargetHUD : Module("TargetHUD", "Displays targeted entity info", Category
         val x = mc.window.scaledWidth / 2 + 10
         val y = mc.window.scaledHeight / 2 - 20
 
-        // Draw rounded rectangle background
+        // Draw rectangle background
         val bgColor = Color(0, 0, 0, 170)
         val width = 123
         val height = 58
-        drawRoundedRect(context, x.toFloat(), y.toFloat(), (x + width).toFloat(), (y + height).toFloat(), 5f, bgColor)
+        context.fill(x, y, x + width, y + height, bgColor.rgb)
 
         // Draw player head
         if (target is net.minecraft.entity.player.PlayerEntity) {
@@ -157,71 +157,5 @@ object TargetHUD : Module("TargetHUD", "Displays targeted entity info", Category
         }
     }
 
-    private fun drawRoundedRect(context: DrawContext, x: Float, y: Float, x1: Float, y1: Float, radius: Float, color: Color) {
-        val matrices = context.matrices
-        matrices.push()
 
-        // Draw main rectangle
-        context.fill(
-            x.toInt() + radius.toInt(),
-            y.toInt(),
-            x1.toInt() - radius.toInt(),
-            y1.toInt(),
-            color.rgb
-        )
-
-        // Draw left and right rectangles
-        context.fill(
-            x.toInt(),
-            y.toInt() + radius.toInt(),
-            x1.toInt(),
-            y1.toInt() - radius.toInt(),
-            color.rgb
-        )
-
-        // Draw rounded corners using small rectangles
-        val cornerSize = radius.toInt()
-        for (i in 0 until cornerSize) {
-            for (j in 0 until cornerSize) {
-                val dx = i - cornerSize
-                val dy = j - cornerSize
-                if (dx * dx + dy * dy <= cornerSize * cornerSize) {
-                    // Top-left corner
-                    context.fill(
-                        x.toInt() + i,
-                        y.toInt() + j,
-                        x.toInt() + i + 1,
-                        y.toInt() + j + 1,
-                        color.rgb
-                    )
-                    // Top-right corner
-                    context.fill(
-                        x1.toInt() - cornerSize + i,
-                        y.toInt() + j,
-                        x1.toInt() - cornerSize + i + 1,
-                        y.toInt() + j + 1,
-                        color.rgb
-                    )
-                    // Bottom-left corner
-                    context.fill(
-                        x.toInt() + i,
-                        y1.toInt() - cornerSize + j,
-                        x.toInt() + i + 1,
-                        y1.toInt() - cornerSize + j + 1,
-                        color.rgb
-                    )
-                    // Bottom-right corner
-                    context.fill(
-                        x1.toInt() - cornerSize + i,
-                        y1.toInt() - cornerSize + j,
-                        x1.toInt() - cornerSize + i + 1,
-                        y1.toInt() - cornerSize + j + 1,
-                        color.rgb
-                    )
-                }
-            }
-        }
-
-        matrices.pop()
-    }
 }

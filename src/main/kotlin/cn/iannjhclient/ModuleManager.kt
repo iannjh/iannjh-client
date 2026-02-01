@@ -11,6 +11,8 @@ object ModuleManager {
 
     init {
         addModule(Sprint)
+        addModule(KeepSprint)
+        addModule(FastPlace)
         addModule(Watermark)
         addModule(ArrayList)
         addModule(NoClickDelay)
@@ -23,7 +25,6 @@ object ModuleManager {
         addModule(NoMiningWhileDrinking)
         addModule(ToggleNotifications)
         addModule(YamlEditorModule)
-        addModule(ChatUI) // Set as default enabled
         addModule(Minimap)
         addModule(TabGUI)
     }

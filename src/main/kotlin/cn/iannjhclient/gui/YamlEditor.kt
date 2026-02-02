@@ -106,12 +106,6 @@ class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
         // 绘制较亮的灰色编辑框背景
         context.fill(editorX, editorY, editorX + editorWidth, editorY + editorHeight, 0xFF505050.toInt())
 
-        // 绘制编辑框边框
-        context.fill(editorX, editorY, editorX + editorWidth, editorY + 2, 0xFFFFFFFF.toInt())
-        context.fill(editorX, editorY + editorHeight - 2, editorX + editorWidth, editorY + editorHeight, 0xFFFFFFFF.toInt())
-        context.fill(editorX, editorY, editorX + 2, editorY + editorHeight, 0xFFFFFFFF.toInt())
-        context.fill(editorX + editorWidth - 2, editorY, editorX + editorWidth, editorY + editorHeight, 0xFFFFFFFF.toInt())
-
         // 绘制YAML内容
         val textRenderer = client.textRenderer
         val lineHeight = textRenderer.fontHeight + 2
@@ -164,14 +158,8 @@ class YamlEditor : Screen(Text.of("YamlEditor.kt")) {
         // 检查鼠标是否悬停在按钮上
         val isHovered = mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height
 
-        // 绘制按钮背景
-        context.fill(x, y, x + width, y + height, if (isHovered) (color and 0x00FFFFFF) or 0xCC000000.toInt() else color)
-
-        // 绘制按钮边框
-        context.fill(x, y, x + width, y + 2, 0xFFFFFFFF.toInt())
-        context.fill(x, y + height - 2, x + width, y + height, 0xFFFFFFFF.toInt())
-        context.fill(x, y, x + 2, y + height, 0xFFFFFFFF.toInt())
-        context.fill(x + width - 2, y, x + width, y + height, 0xFFFFFFFF.toInt())
+        // 绘制按钮背景（不透明）
+        context.fill(x, y, x + width, y + height, if (isHovered) (color and 0x00FFFFFF) or 0xFF000000.toInt() else color)
 
         // 绘制按钮文本
         val textRenderer = MinecraftClient.getInstance().textRenderer

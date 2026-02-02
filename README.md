@@ -1,4 +1,4 @@
-# ArchLibMan Client
+# iannjh Client
 
 [![License](https://img.shields.io/github/license/archjh/ArchLibman?color=blue)](LICENSE)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.20.4-green)](https://www.minecraft.net)

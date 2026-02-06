@@ -27,6 +27,7 @@ object ModuleManager {
         addModule(YamlEditorModule)
         addModule(Minimap)
         addModule(TabGUI)
+        addModule(AimAssist)
     }
 
     fun addModule(module: Module) {
